@@ -1,17 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+
+using Prism.Ioc;
+using Prism.Unity;
 
 namespace HrvAnalyzer.UI
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
+        /// <summary>
+        /// Регистрирует все зависимости приложения
+        /// </summary>
+        /// <param name="containerRegistry">Регистрирующий контейнер</param>
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+        }
+
+        /// <summary>
+        /// Создает главное окно приложения
+        /// </summary>
+        /// <returns>Главное окно приложения</returns>
+        protected override Window CreateShell()
+        {
+            var window = Container.Resolve<MainWindow>();
+
+            return window;
+        }
     }
 }
