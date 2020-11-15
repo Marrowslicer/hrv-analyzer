@@ -19,6 +19,7 @@ namespace HrvAnalyzer.UI
         {
             containerRegistry.Register<IOpenFileService, OpenFileService>();
             containerRegistry.Register<IFileDetailViewModel, FileDetailViewModel>();
+            containerRegistry.Register<ITimeDomainViewModel, TimeDomainViewModel>();
         }
 
         /// <summary>

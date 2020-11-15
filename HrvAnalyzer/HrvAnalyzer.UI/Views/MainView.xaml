@@ -6,7 +6,7 @@
         xmlns:vm="clr-namespace:HrvAnalyzer.UI.ViewModels"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="MainView"
+        Title="HRV Analyzer"
         Height="384"
         Width="576"
         WindowStartupLocation="CenterScreen">
@@ -14,9 +14,14 @@
         <DataTemplate DataType="{x:Type vm:FileDetailViewModel}">
             <v:FileDetailView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:TimeDomainViewModel}">
+            <v:TimeDomainView/>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
@@ -38,5 +43,11 @@
                     Content="Start analysis"
                     Command="{Binding StartAnalysisCommand}"/>
         </Grid>
+
+        <TabControl Grid.Row="1">
+            <TabItem Header="Time domain">
+                <ContentControl Content="{Binding TimeDomainViewModel}"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

@@ -84,7 +84,9 @@
     <Compile Include="Services\OpenFileService.cs" />
     <Compile Include="ViewModels\FileDetailViewModel.cs" />
     <Compile Include="ViewModels\IFileDetailViewModel.cs" />
+    <Compile Include="ViewModels\ITimeDomainViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\TimeDomainViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\FileDetailView.xaml.cs">
       <DependentUpon>FileDetailView.xaml</DependentUpon>
@@ -96,11 +98,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\TimeDomainView.xaml.cs">
+      <DependentUpon>TimeDomainView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\FileDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TimeDomainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
