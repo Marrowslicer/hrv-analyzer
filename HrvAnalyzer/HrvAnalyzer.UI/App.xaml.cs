@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 
+using HrvAnalyzer.UI.Services;
+using HrvAnalyzer.UI.ViewModels;
 using HrvAnalyzer.UI.Views;
 
 using Prism.Ioc;
@@ -15,6 +17,8 @@ namespace HrvAnalyzer.UI
         /// <param name="containerRegistry">Регистрирующий контейнер</param>
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.Register<IOpenFileService, OpenFileService>();
+            containerRegistry.Register<IFileDetailViewModel, FileDetailViewModel>();
         }
 
         /// <summary>
