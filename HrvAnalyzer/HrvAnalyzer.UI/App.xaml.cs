@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 
+using HrvAnalyzer.UI.Views;
+
 using Prism.Ioc;
 using Prism.Unity;
 
@@ -21,7 +23,7 @@ namespace HrvAnalyzer.UI
         /// <returns>Главное окно приложения</returns>
         protected override Window CreateShell()
         {
-            var window = Container.Resolve<MainWindow>();
+            var window = Container.Resolve<MainView>();
 
             return window;
         }
