@@ -1,7 +1,9 @@
-﻿namespace HrvAnalyzer.UI.ViewModels
+﻿using System.Collections.Generic;
+
+namespace HrvAnalyzer.UI.ViewModels
 {
     public interface ITimeDomainViewModel
     {
-        string Data { get; set; }
+        bool ProcessData(IEnumerable<double> values);
     }
 }

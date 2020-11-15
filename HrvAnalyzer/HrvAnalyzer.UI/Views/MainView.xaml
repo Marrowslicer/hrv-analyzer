@@ -7,10 +7,12 @@
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="HRV Analyzer"
-        Height="384"
-        Width="576"
-        WindowStartupLocation="CenterScreen">
+        Height="768"
+        Width="1024"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized">
     <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <DataTemplate DataType="{x:Type vm:FileDetailViewModel}">
             <v:FileDetailView/>
         </DataTemplate>
@@ -25,7 +27,8 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0"
+              Margin="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
@@ -33,6 +36,7 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0"
+                    Padding="12,3"
                     Content="Open file"
                     Command="{Binding OpenFileCommand}"/>
 
@@ -40,14 +44,24 @@
                             Content="{Binding FileDetailViewModel}"/>
 
             <Button Grid.Column="2"
+                    Padding="12,3"
                     Content="Start analysis"
                     Command="{Binding StartAnalysisCommand}"/>
         </Grid>
 
-        <TabControl Grid.Row="1">
+        <TabControl Grid.Row="1"
+                    Margin="2">
             <TabItem Header="Time domain">
-                <ContentControl Content="{Binding TimeDomainViewModel}"/>
+                <ContentControl Content="{Binding TimeDomainViewModel}"
+                                Visibility="{Binding IsTimeDomainProcessing,
+                    Converter={StaticResource BooleanToVisibilityConverter}}"/>
             </TabItem>
         </TabControl>
+
+        <StatusBar Grid.Row="2">
+            <StatusBarItem>
+                <TextBlock Text="{Binding StatusText, Mode=TwoWay}"/>
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
 </Window>
